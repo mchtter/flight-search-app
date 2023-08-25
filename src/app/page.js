@@ -3,7 +3,7 @@ import { FlightyLogo } from '@/assets/svg/Icons'
 export default function Home() {
   return (
     <div class="h-screen bg-cover relative bg-[url('./plane.jpeg')]">
-      <nav class="absolute w-full border-gray-200 bg-indigo-600 dark:bg-indigo-600 dark:border-gray-700">
+      <nav class="w-full absolute border-gray-200 bg-indigo-600 dark:bg-indigo-600 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap justify-center items-center mx-auto p-4">
           <a href="#" class="flex items-center">
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -14,12 +14,12 @@ export default function Home() {
       </nav>
 
       <div class="flex items-center justify-center h-full">
-        <div class="flex items-center justify-center z-10">
+        <div class="flex items-center justify-center z-10 w-full">
           <div class="max-w-sm lg:max-w-full lg:flex min-w-80">
             <div class="h-80 lg:h-auto lg:w-80 flex-none bg-cover bg-center rounded-l-3xl text-center overflow-hidden bg-[url('./plane1.jpeg')] hidden lg:block" title="Choose your best flight"></div>
-            <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white max-[1024px]:rounded-3xl lg:rounded-r-3xl p-4 flex flex-col justify-between leading-normal">
+            <div class="bg-white dark:bg-gray-900 max-[1024px]:rounded-3xl lg:rounded-r-3xl p-4 flex flex-col justify-between leading-normal">
               <div class="mb-8 w-100">
-                <p class="text-sm text-gray-600 flex items-center justify-center mb-7">
+                <p class="text-sm text-gray-700 dark:text-gray-300 flex items-center justify-center mb-7">
                   Choose your best flight
                 </p>
                 <div class="flex justify-around text-gray-900 font-bold text-xl mb-7">
@@ -79,7 +79,7 @@ export default function Home() {
                   </div>
                     <div class="flex items-center lg:pr-12">
                       <input id="bordered-checkbox-1" type="checkbox" value="" name="bordered-checkbox" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                      <label for="bordered-checkbox-1" class="w-full ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">One-Way</label>
+                      <label for="bordered-checkbox-1" class="w-full ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">One-Way</label>
                     </div>
                 </div>
                 <div class="flex justify-center text-gray-900 font-bold lg:text-xl m-7">
@@ -89,7 +89,7 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-                <p class="text-gray-700 text-xs">Prices may change daily. Please don&apos;t forget to book your chosen flight after making your choice!</p>
+                <p class="text-gray-700 text-xs dark:text-gray-300">Prices may change daily. Please don&apos;t forget to book your chosen flight after making your choice!</p>
               </div>
             </div>
           </div>
