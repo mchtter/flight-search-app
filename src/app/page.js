@@ -23,6 +23,7 @@ export default function Home() {
         setFrom(data.from)
         setTo(data.to)
         setDepartureDate(today)
+        setReturnDate(calculateOneDayLater(today))
         setLoading(false)
       })
   }, [today])
@@ -37,6 +38,7 @@ export default function Home() {
       return
     }
     setDepartureDate(e.target.value)
+    setReturnDate(calculateOneDayLater(e.target.value))
   }
 
   function handleReturnChange(e) {
@@ -57,6 +59,12 @@ export default function Home() {
     setTimeout(() => {
       setAlert(false)
     }, 3000)
+  }
+
+  function calculateOneDayLater(date) {
+    let _date = new Date(date)
+    _date.setDate(_date.getDate() + 1)
+    return _date.toISOString().slice(0, 10)
   }
 
   return (
