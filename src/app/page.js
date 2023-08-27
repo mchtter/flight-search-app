@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   let today = new Date().toISOString().slice(0, 10)
+  let fromTyping, toTyping;
+  const typingTimeout = 700
   const [loading, setLoading] = useState(true)
   const [isOneWay, setIsOneWay] = useState(false)
   const [from, setFrom] = useState([])
@@ -34,7 +36,45 @@ export default function Home() {
   }, [today])
 
   function handleFromChange(e) {
-    setSelectedFrom(e.target.value)
+    clearTimeout(fromTyping);
+
+    fromTyping = setTimeout(() => {
+      if (e.target.value == "") {
+        document.getElementById("fromDataInput").value = ""
+        setSelectedFrom("")
+        return
+      }
+
+      let _from = from.filter((item) => item.name.includes(e.target.value))
+      if (_from.length == 0) {
+        showToast("City or Airport Not Found! Please be sure to choose from list.")
+        document.getElementById("fromDataInput").value = ""
+        setSelectedFrom("")
+        return
+      }
+
+      document.getElementById("fromDataInput").value = _from[0].name
+      setSelectedFrom(_from[0].name)
+    }, typingTimeout)
+  }
+
+  function handleToChange(e) {
+    clearTimeout(toTyping);
+
+    toTyping = setTimeout(() => {
+      if (e.target.value == "") {
+        document.getElementById("toDataInput").value = ""
+        return
+      }
+      let _to = to.filter((item) => item.name.includes(e.target.value))
+      if (_to.length == 0) {
+        showToast("City or Airport Not Found! Please be sure to choose from list.")
+        document.getElementById("toDataInput").value = ""
+        return
+      }
+
+      document.getElementById("toDataInput").value = _to[0].name
+    }, typingTimeout)
   }
 
   function handleDepartureChange(e) {
@@ -107,7 +147,7 @@ export default function Home() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-900 dark:text-white">To:</label>
-                      <input id="toInput" list="toDatalist" name="to" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="To" required disabled={selectedFrom == ""} />
+                      <input onChange={(e) => handleToChange(e)} list="toDatalist" id="toDataInput" name="to" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="To" required disabled={selectedFrom == ""} />
                       <datalist id="toDatalist">
                         {to?.map((item, index) => (
                           <option key={index} value={item?.name} disabled={selectedFrom == item?.name} />
