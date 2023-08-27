@@ -6,7 +6,7 @@ let todayStr = today.toISOString().split('T')[0]
 
 describe('homepage should contain: from, to, departure, return, passenger, one-way and submit button', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="from"]').should('exist')
     cy.get('input[name="to"]').should('exist')
     cy.get('input[name="departure"]').should('exist')
@@ -19,7 +19,7 @@ describe('homepage should contain: from, to, departure, return, passenger, one-w
 
 describe('return date should be disabled when one-way is checked', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="one-way"]').check()
     cy.get('input[name="return"]').should('be.disabled')
   })
@@ -27,7 +27,7 @@ describe('return date should be disabled when one-way is checked', () => {
 
 describe('return date should be enabled when one-way is unchecked', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="one-way"]').check()
     cy.get('input[name="one-way"]').uncheck()
     cy.get('input[name="return"]').should('not.be.disabled')
@@ -36,21 +36,21 @@ describe('return date should be enabled when one-way is unchecked', () => {
 
 describe('departure should init today', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="departure"]').should('have.value', todayStr)
   })
 })
 
 describe('return should init tomorrow', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="return"]').should('have.value', tomorrowStr)
   })
 })
 
 describe('departure should not be less than today', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="departure"]').clear().type('2021-01-01')
     cy.get('input[name="departure"]').should('have.value', todayStr)
   })
@@ -58,7 +58,7 @@ describe('departure should not be less than today', () => {
 
 describe('return should not be less than departure', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="departure"]').clear().type('2021-01-01')
     cy.get('input[name="return"]').clear().type('2020-12-31')
     cy.get('input[name="return"]').should('have.value', tomorrowStr)
@@ -67,7 +67,7 @@ describe('return should not be less than departure', () => {
 
 describe('if return date is less than departure date, toast should appear', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="departure"]').clear().type('2021-01-01')
     cy.get('input[name="return"]').clear().type('2020-12-31')
     cy.get('button[type="submit"]').click()
@@ -77,7 +77,7 @@ describe('if return date is less than departure date, toast should appear', () =
 
 describe('when submit button is clicked, it should redirect to /flights', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:4173')
     cy.get('input[name="from"]').type('Manila')
     cy.get('input[name="to"]').type('Cebu')
     cy.get('input[name="departure"]').clear().type('2021-01-01')
@@ -90,7 +90,7 @@ describe('when submit button is clicked, it should redirect to /flights', () => 
 
 describe('if data is empty, No flights found should write in /flights page', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000/flights')
+    cy.visit('http://localhost:4173/flights')
     cy.get('#no-flights').should('exist')
   })
 })
