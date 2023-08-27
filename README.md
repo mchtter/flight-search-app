@@ -136,6 +136,13 @@ To run the tests, follow the steps below:
     npm run test:e2e
    ```
 Note: The tests are run using the Cypress framework and it will work default port 4173. If you want to change the port, you can change it in the 'cypress.config.js' file.
+
+[![Flighty Screen Shot][product-screenshot-9]](https://flighty.mucahit.dev)
+  Test cases
+
+[![Flighty Screen Shot][product-screenshot-8]](https://flighty.mucahit.dev)
+  Test results
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Database
@@ -203,6 +210,8 @@ Project Link: [https://github.com/mchtter/flight-search-app](https://github.com/
 [product-screenshot-5]: src/assets/docs/app-screenshot-5.png
 [product-screenshot-6]: src/assets/docs/app-screenshot-6.png
 [product-screenshot-7]: src/assets/docs/app-screenshot-7.png
+[product-screenshot-8]: src/assets/docs/app-screenshot-8.png
+[product-screenshot-9]: src/assets/docs/app-screenshot-9.png
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://www.nextjs.org/
