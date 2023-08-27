@@ -154,7 +154,7 @@ export default function Flights() {
                                     <tbody>
                                         {flights?.length === 0 && (
                                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td colSpan="5" className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                <td id="no-flights" colSpan="5" className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     No flights found
                                                 </td>
                                             </tr>
