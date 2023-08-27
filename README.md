@@ -127,15 +127,34 @@ Enjoy the coding!
 To run the tests, follow the steps below:
 
 
-1. Run the application
+1. If you want to run the tests in the browser, run the following command.
    ```sh
-   npm run dev
+   npm run test
    ```
-2. Run the tests
+2. If you want to run the tests headless mode, run the following command.
    ```sh
-    npm run test:e2e
+    npm run test:headless
    ```
-Note: The tests are run using the Cypress framework and it will work default port 4173. If you want to change the port, you can change it in the 'cypress.config.js' file.
+3. If you want to run the tests with cypress test runner, run the following command.
+   ```sh
+    npm run cy:run
+   ```
+4. If you want to open the cypress test runner, run the following command.
+   ```sh
+    npm run cy:open
+   ```
+  
+Note: The tests are run using the Cypress framework and it will work default port 4173. If you want to change the port, you can change it in the 'package.json' or you can configurate it in the 'cypress.config.js' file. 
+
+[![Flighty Screen Shot][product-screenshot-9]](https://flighty.mucahit.dev)
+  Test runner
+
+[![Flighty Screen Shot][product-screenshot-9]](https://flighty.mucahit.dev)
+  Test cases
+
+[![Flighty Screen Shot][product-screenshot-8]](https://flighty.mucahit.dev)
+  Test results
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Database
@@ -203,6 +222,8 @@ Project Link: [https://github.com/mchtter/flight-search-app](https://github.com/
 [product-screenshot-5]: src/assets/docs/app-screenshot-5.png
 [product-screenshot-6]: src/assets/docs/app-screenshot-6.png
 [product-screenshot-7]: src/assets/docs/app-screenshot-7.png
+[product-screenshot-8]: src/assets/docs/app-screenshot-8.png
+[product-screenshot-9]: src/assets/docs/app-screenshot-9.png
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://www.nextjs.org/

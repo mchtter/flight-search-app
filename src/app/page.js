@@ -18,7 +18,12 @@ export default function Home() {
 
   useEffect(() => {
     fetch('/api/directions')
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          showToast("Something went wrong. Please try again later.")
+        }
+        return response.json()
+      })
       .then((data) => {
         setFrom(data.from)
         setTo(data.to)
