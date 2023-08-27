@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 export default function Home() {
   let today = new Date().toISOString().slice(0, 10)
   let fromTyping, toTyping;
-  const typingTimeout = 700
+  const typingTimeout = 3000
   const [loading, setLoading] = useState(true)
   const [isOneWay, setIsOneWay] = useState(false)
   const [from, setFrom] = useState([])
@@ -45,7 +45,7 @@ export default function Home() {
         return
       }
 
-      let _from = from.filter((item) => item.name.includes(e.target.value))
+      let _from = from.filter((item) => item.name.toLowerCase().includes(e.target.value.toLowerCase()))
       if (_from.length == 0) {
         showToast("City or Airport Not Found! Please be sure to choose from list.")
         document.getElementById("fromDataInput").value = ""
@@ -66,7 +66,7 @@ export default function Home() {
         document.getElementById("toDataInput").value = ""
         return
       }
-      let _to = to.filter((item) => item.name.includes(e.target.value))
+      let _to = to.filter((item) => item.name.toLowerCase().includes(e.target.value.toLowerCase()))
       if (_to.length == 0) {
         showToast("City or Airport Not Found! Please be sure to choose from list.")
         document.getElementById("toDataInput").value = ""
