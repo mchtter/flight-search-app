@@ -57,21 +57,14 @@ export default function Flights() {
         return (e) => {
             e.preventDefault()
             setSortType(sortType === 'ASC' ? 'DESC' : 'ASC')
-            const sortedDeparture = [...departureFlights].sort((a, b) => {
-                const parsedA = a[key].split(':').join('')
-                const parsedB = b[key].split(':').join('')
-
-                return sortType === 'ASC' ? parsedA - parsedB : parsedB - parsedA
-            })
-            const sortedReturn = [...returnFlights].sort((a, b) => {
+            const sorted = [...flights].sort((a, b) => {
                 const parsedA = a[key].split(':').join('')
                 const parsedB = b[key].split(':').join('')
 
                 return sortType === 'ASC' ? parsedA - parsedB : parsedB - parsedA
             })
 
-            setDepartureFlights(sortedDeparture)
-            setReturnFlights(sortedReturn)
+            setFlights(sorted)
         }
     }
 
