@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+::-webkit-calendar-picker-indicator {
+  /* color: rgb(var(--foreground-rgb)); */
+  filter: invert(0.5)
+}
+
+input[type="date"]:disabled {
+  color: gray;
+}
