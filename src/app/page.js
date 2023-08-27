@@ -60,7 +60,7 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen bg-cover relative bg-[url('./plane.jpeg')]">
+    <div className="h-screen bg-cover relative bg-[url('../assets/plane.jpeg')]">
       {/* navbar */}
       <Navbar />
 
@@ -76,7 +76,7 @@ export default function Home() {
         <form action="/flights" className="relative flex items-center justify-center top-32 z-30">
           <div className="flex items-center justify-center z-10 w-full">
             <div className="max-w-sm lg:max-w-full lg:flex min-w-80">
-              <div className="h-80 lg:h-auto lg:w-80 flex-none bg-cover bg-center rounded-l-3xl text-center overflow-hidden bg-[url('./plane1.jpeg')] hidden lg:block" title="Choose your best flight"></div>
+              <div className="h-80 lg:h-auto lg:w-80 flex-none bg-cover bg-center rounded-l-3xl text-center overflow-hidden bg-[url('../assets/plane1.jpeg')] hidden lg:block" title="Choose your best flight"></div>
               <div className="bg-white dark:bg-gray-900 max-[1024px]:rounded-3xl lg:rounded-r-3xl p-4 flex flex-col justify-between leading-normal">
                 <div className="mb-8 w-100">
                   <p className="text-sm text-gray-700 dark:text-gray-300 flex items-center justify-center mb-7">
