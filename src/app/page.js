@@ -73,7 +73,7 @@ export default function Home() {
 
       {/* form */}
       {!loading && (
-        <form action="/flights" className="relative flex items-center justify-center h-full z-30">
+        <form action="/flights" className="relative flex items-center justify-center top-32 z-30">
           <div className="flex items-center justify-center z-10 w-full">
             <div className="max-w-sm lg:max-w-full lg:flex min-w-80">
               <div className="h-80 lg:h-auto lg:w-80 flex-none bg-cover bg-center rounded-l-3xl text-center overflow-hidden bg-[url('./plane1.jpeg')] hidden lg:block" title="Choose your best flight"></div>
@@ -112,7 +112,7 @@ export default function Home() {
                     <div>
                       <label className="block text-sm font-medium text-gray-900 dark:text-white">Return</label>
                       <div className="relative max-w-sm">
-                        <input value={returnDate} onChange={(e) => handleReturnChange(e)} id="returnDate" type="date" name="Date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select Return" disabled={isOneWay} required={!isOneWay} />
+                        <input value={returnDate} onChange={(e) => handleReturnChange(e)} id="returnDate" type="date" name="return" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select Return" disabled={isOneWay} required={!isOneWay} />
                       </div>
                     </div>
                   </div>
