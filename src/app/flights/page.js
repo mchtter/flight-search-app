@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { ArrowRightIcon, SortIcon } from '@/assets/svg/Icons';
+import Toast from '@/components/Toast';
 
 export default function Flights() {
     const [flights, setFlights] = useState([])
@@ -11,6 +12,9 @@ export default function Flights() {
     const [loading, setLoading] = useState(true)
     const [sortType, setSortType] = useState('ASC')
     const [way, setWay] = useState('departure')
+    const [toastText, setToastText] = useState("")
+    const [alert, setAlert] = useState(false)
+
 
     useEffect(() => {
         fetch('/api/flights', {
@@ -26,7 +30,12 @@ export default function Flights() {
                 passenger: getURLParams().passenger
             })
         })
-            .then((response) => response.json())
+            .then((response) => {
+                if (response.status !== 200) {
+                    showToast("Something went wrong. Please try again later.")
+                }
+                return response.json()
+            })
             .then((data) => {
                 setDepartureFlights(data.departure)
                 setReturnFlights(data.returnFlights)
@@ -75,6 +84,13 @@ export default function Flights() {
         }
     }
 
+    function showToast(text) {
+        setToastText(text)
+        setAlert(true)
+        setTimeout(() => {
+            setAlert(false)
+        }, 3000)
+    }
 
     return (
         <div className="dark:bg-zinc-900 h-screen bg-gray-300">
@@ -91,19 +107,19 @@ export default function Flights() {
                 <div className="flex items-center justify-center relative top-32">
                     <div className="flex items-center justify-center z-30 w-full">
                         <div className="max-w-sm lg:max-w-full max-h-96 flex flex-col min-w-80">
-                        <div className="flex items-center justify-center">
-                                    <div className="flex items-center">
-                                        <div>
-                                            {way == 'departure' ? getURLParams().from : getURLParams().to}
-                                        </div>
-                                        <button onClick={changeWay()} disabled={!getURLParams().returnDate}>
-                                            <ArrowRightIcon className="w-5 h-5 mx-5" />
-                                        </button>
-                                        <div>
-                                            {way == 'departure' ? getURLParams().to : getURLParams().from}
-                                        </div>
+                            <div className="flex items-center justify-center">
+                                <div className="flex items-center">
+                                    <div>
+                                        {way == 'departure' ? getURLParams().from : getURLParams().to}
+                                    </div>
+                                    <button onClick={changeWay()} disabled={!getURLParams().returnDate}>
+                                        <ArrowRightIcon className="w-5 h-5 mx-5" />
+                                    </button>
+                                    <div>
+                                        {way == 'departure' ? getURLParams().to : getURLParams().from}
                                     </div>
                                 </div>
+                            </div>
                             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                     <thead className="text-xs text-gray-700 sticky top-0 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -168,6 +184,10 @@ export default function Flights() {
                         </div>
                     </div>
                 </div>
+            )}
+            {/* alert toast */}
+            {alert && (
+                <Toast text={toastText} />
             )}
         </div>
     )
