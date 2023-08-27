@@ -13,11 +13,23 @@
   <p align="center">
     Introducing Flighty – Your Ultimate Travel Companion! Seamlessly search, and book the best flight deals with just a few taps. Elevate your travel experience with Flighty and take off on unforgettable journeys with ease.
     <br />
+
+
+    !!! IMPORTANT !!!
+    IF YOU WANT TO TRY APP WITH MOCK DATA, YOU SHOULD SELECT THIS OPTION ON THE SEARCH FORM:
+
+      FROM: Antalya(AYT)
+      TO: Istanbul(SAW)
+      DEPARTURE: 2023-10-02
+      RETURN: 2023-10-03
+
+  </p>
+    <br />
     <a href="https://github.com/mchtter/flight-search-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://flighty.mucahit.dev/">View Demo</a>
-  </p>
+    </div>
 </div>
 
 <details>
@@ -158,7 +170,7 @@ Note: The tests are run using the Cypress framework and it will work default por
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Database
-If you want to use the database on your own server, your supabase server must have the following tables and columns for validation.
+
 
 ### Flights
       {
